@@ -5,6 +5,7 @@ using UnityEngine;
 public class AutoSaveSystem : MonoBehaviour
 {
 	PolvereDiStelleManger manager;
+	public GameObject[] fiori;
 	public float Timer = 0;
 	public bool SaveGame = false;
 	public float TimeCheck = 120f;
@@ -31,10 +32,16 @@ public class AutoSaveSystem : MonoBehaviour
     }
 	
 	public void SaveGameFunc(){
+		for(int i = 0; i < fiori.Length; i++){
+			fiori[i].GetComponent<Flowers10powder>().SaveGameFuncFlower();
+		}
 		PlayerPrefs.SetInt("PolvereDiStelle", manager.PolvereDiStelle);
 	}
 	
 	public void LoadGameFunc(){
+		for(int i = 0; i < fiori.Length; i++){
+			fiori[i].GetComponent<Flowers10powder>().LoadGameFuncFlower();
+		}
 		manager.PolvereDiStelle = PlayerPrefs.GetInt("PolvereDiStelle");
 	}
 	
