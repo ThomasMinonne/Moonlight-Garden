@@ -45,5 +45,4 @@ public class PolvereDiStelleManger : MonoBehaviour
 		daAggiungere.name = "Pianta " + (piantaCorrente+1);
 	}
 	
-	
 }
