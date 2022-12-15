@@ -43,6 +43,7 @@ public class PolvereDiStelleManger : MonoBehaviour
 		daAggiungere = Instantiate(piante[piantaCorrente+1], new Vector3(0, -26, 0), Quaternion.identity);
 		piantaCorrente += 1;
 		daAggiungere.name = "Pianta " + (piantaCorrente+1);
+		daDistruggere = daAggiungere;
 	}
 	
 }
