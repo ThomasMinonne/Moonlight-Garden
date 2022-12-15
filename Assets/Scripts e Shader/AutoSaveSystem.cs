@@ -36,6 +36,7 @@ public class AutoSaveSystem : MonoBehaviour
 			fiori[i].GetComponent<Flowers10powder>().SaveGameFuncFlower();
 		}
 		PlayerPrefs.SetInt("PolvereDiStelle", manager.PolvereDiStelle);
+		PlayerPrefs.Save();
 	}
 	
 	public void LoadGameFunc(){
