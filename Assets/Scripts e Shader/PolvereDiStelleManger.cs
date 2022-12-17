@@ -11,7 +11,6 @@ public class PolvereDiStelleManger : MonoBehaviour
 	public GameObject[] piante;
 	private GameObject daDistruggere;
 	private GameObject daAggiungere;
-	//public List<GameObject> piante = new List<GameObject>();
 	
     // Start is called before the first frame update
     void Start()
@@ -25,7 +24,9 @@ public class PolvereDiStelleManger : MonoBehaviour
     {
         Text.text = PolvereDiStelle.ToString();
 		if(Input.GetKeyDown("space")){
-			growPlant();
+			if(PolvereDiStelle >= 3000){
+				growPlant();
+			}
 		}
     }
 	

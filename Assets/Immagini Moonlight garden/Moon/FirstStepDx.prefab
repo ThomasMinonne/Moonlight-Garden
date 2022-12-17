@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2393614291211778733}
   - component: {fileID: 2768924657983964599}
-  - component: {fileID: 5134128720570195977}
   m_Layer: 0
   m_Name: Sprite Mask (1)
   m_TagString: Untagged
@@ -84,56 +83,6 @@ SpriteMask:
   m_BackSortingOrder: 0
   m_IsCustomRangeActive: 0
   m_SpriteSortPoint: 0
---- !u!114 &5134128720570195977
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2396597320839234608}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0ffb71e5f0d2cb439c89bab720f9254, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetA: {fileID: 0}
-  targetB: {fileID: 0}
-  lerpCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 1.8115519
-      outSlope: 1.8115519
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.5
-      value: 0.90577596
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: -1.8115519
-      outSlope: -1.8115519
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  lerpOffset: {x: 0, y: 0, z: 0}
-  lerpTime: 1000
-  _timer: 1
 --- !u!1 &9012504800233408895
 GameObject:
   m_ObjectHideFlags: 0
@@ -144,7 +93,6 @@ GameObject:
   m_Component:
   - component: {fileID: 9012504800233408832}
   - component: {fileID: 9012504800233408833}
-  - component: {fileID: 9012504800233408894}
   m_Layer: 0
   m_Name: Sprite Mask
   m_TagString: Untagged
@@ -218,56 +166,6 @@ SpriteMask:
   m_BackSortingOrder: 0
   m_IsCustomRangeActive: 0
   m_SpriteSortPoint: 0
---- !u!114 &9012504800233408894
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9012504800233408895}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0ffb71e5f0d2cb439c89bab720f9254, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetA: {fileID: 0}
-  targetB: {fileID: 0}
-  lerpCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 1.8115519
-      outSlope: 1.8115519
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.5
-      value: 0.90577596
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: -1.8115519
-      outSlope: -1.8115519
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  lerpOffset: {x: 0, y: 0, z: 0}
-  lerpTime: 1000
-  _timer: 1
 --- !u!1 &9012504800680024044
 GameObject:
   m_ObjectHideFlags: 0

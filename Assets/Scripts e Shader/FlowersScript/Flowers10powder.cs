@@ -13,35 +13,31 @@ public class Flowers10powder : MonoBehaviour
 	public bool ready;
 	public int secondsCooldown;
 	private long tickCooldown;
-	private string tempDate;
 	private DateTime gather;
-	private long gatherTicks = 0;
-	private long gatherTicksOnLoad;
+	private long gatherTicks;
 	
     // Start is called before the first frame update
     void Start()
     {
 		tickCooldown = secondsCooldown*10000000;
+		LoadGameFuncFlower();
     }
 
     // Update is called once per frame
     void Update()
     {
-		if(DateTime.Now.Ticks >= gatherTicks){
+		if(DateTime.Now.Ticks >= (gather.Ticks + tickCooldown)){
 			chooseReady(true);
 		}
     }
 	
 	public void SaveGameFuncFlower(){
-		PlayerPrefs.SetString(name + " gather time", gather.ToString());
+		PlayerPrefs.SetString(name + " gather time", DateTime.Now.ToString());
+		PlayerPrefs.Save();
 	}
 	
 	public void LoadGameFuncFlower(){
-		tempDate = PlayerPrefs.GetString(name + " gather time", gather.ToString());
-		gatherTicksOnLoad = Convert.ToDateTime(tempDate).Ticks + tickCooldown;
-		if(DateTime.Now.Ticks >= gatherTicksOnLoad){
-			chooseReady(true);
-		}
+		gather = DateTime.Parse(PlayerPrefs.GetString(name + " gather time"));
 	}
 	
 	public void chooseReady(bool check){
@@ -55,9 +51,5 @@ public class Flowers10powder : MonoBehaviour
 		}			
 		else{return false;}
 	}
-	
-	public void resetTimer(){
-		gather = DateTime.Now;
-		gatherTicks = DateTime.Now.Ticks + tickCooldown;
-	}
+
 }
