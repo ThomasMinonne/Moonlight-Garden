@@ -19,6 +19,7 @@ public class Flowers10powder : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+		//gather = DateTime.Parse(PlayerPrefs.GetString(name + " gather time"));
 		tickCooldown = secondsCooldown*10000000;
 		LoadGameFuncFlower();
     }

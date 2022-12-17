@@ -20,7 +20,7 @@ public class AutoSaveSystem : MonoBehaviour
 	private GameObject constDaDistruggere;
 	private int currentConstellation;
 	private DateTime moontime;
-	
+	string format = "MM/dd/yyyy hh:mm:ss tt";
     // Start is called before the first frame update
     void Start()
     {
@@ -62,6 +62,7 @@ public class AutoSaveSystem : MonoBehaviour
 	public void LoadGameFunc(){
 		manager.PolvereDiStelle = PlayerPrefs.GetInt("PolvereDiStelle");
 		moontime = DateTime.Parse(PlayerPrefs.GetString("Moon time phases time"));
+		//moontime = DateTime.ParseExact(PlayerPrefs.GetString("Moon time phases time"), format);
 	}
 	
 	public void nextPhase(){
