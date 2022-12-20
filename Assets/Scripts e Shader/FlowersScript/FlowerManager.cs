@@ -23,13 +23,18 @@ public class FlowerManager : MonoBehaviour
 	[SerializeField] float spread;
 	Vector3 targetPosition;
 	
+	[Space]
+	[Header ("Bucket")]
+	[SerializeField] GameObject bucket;
+	[SerializeField] Vector3 scaleTo;
+	
 	void Awake (){
 		targetPosition = target.position;
 
 		//prepare pool
 		PrepareSparkle();
 	}
-
+	
     // Update is called once per frame
     void Update(){
 		if (Input.GetMouseButtonDown(0)) {
@@ -70,7 +75,7 @@ public class FlowerManager : MonoBehaviour
 				sparkle.SetActive(true);
 
 				//move coin to the collected coin pos
-				sparkle.transform.position = collectedSparklePosition + new Vector3 (Random.Range (-spread, spread), Random.Range (-spread, spread), 0f);
+				sparkle.transform.position = collectedSparklePosition + new Vector3 (Random.Range (-spread, spread), Random.Range (3+(-spread), 3+spread), 0f);
 
 				//animate coin to target position
 				float duration = Random.Range (minAnimDuration, maxAnimDuration);
@@ -80,6 +85,9 @@ public class FlowerManager : MonoBehaviour
 					//executes whenever coin reach target position
 					sparkle.SetActive(false);
 					sparkleQueue.Enqueue(sparkle);
+					bucket.transform.DOScale(scaleTo, 0.3f).SetEase(Ease.InOutBounce).OnComplete(() => { 
+						bucket.transform.DOScale(new Vector3 (0.8f,0.8f,0.8f), 0.1f).SetEase(Ease.InOutBounce);
+					});
 				});
 			}
 		}

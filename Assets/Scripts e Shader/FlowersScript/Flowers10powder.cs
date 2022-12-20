@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Globalization;
 /*TICKS
 - Second : 10000000
 - Minute : 600000000
@@ -15,6 +16,12 @@ public class Flowers10powder : MonoBehaviour
 	private long tickCooldown;
 	private DateTime gather;
 	private long gatherTicks;
+	string format = "dd/MM/yyyy HH:mm:ss";
+	
+	[Space]
+	[Header ("Flower settings")]
+	public Material Lit;
+	public Material Unlit;
 	
     // Start is called before the first frame update
     void Start()
@@ -38,11 +45,20 @@ public class Flowers10powder : MonoBehaviour
 	}
 	
 	public void LoadGameFuncFlower(){
-		gather = DateTime.Parse(PlayerPrefs.GetString(name + " gather time"));
+		if(PlayerPrefs.GetString(name + " gather time") == ""){
+			gather = DateTime.ParseExact("01/01/1991 00:00:00", format, CultureInfo.InvariantCulture);
+		} else gather = DateTime.ParseExact(PlayerPrefs.GetString(name + " gather time"), format, CultureInfo.InvariantCulture);
 	}
 	
 	public void chooseReady(bool check){
 		ready = check;
+		if(check == true){
+			transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().material = Unlit;
+			transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().material = Unlit;
+		} else {
+			transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().material = Lit;
+			transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().material = Lit;
+		}
 		return;
 	}
 	
