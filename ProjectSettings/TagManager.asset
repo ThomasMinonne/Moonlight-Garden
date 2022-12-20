@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Star
   - Constellation
+  - Moon
   layers:
   - Default
   - TransparentFX

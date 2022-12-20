@@ -35,7 +35,7 @@ public class Constellation : MonoBehaviour
 			if (hit.collider != null && complete == false){
 				if(hit.collider.gameObject.tag == "Star"){
 					hit.collider.gameObject.transform.DOScale(scaleTo, 0.3f).SetEase(Ease.InOutBounce).OnComplete(() => { 
-						hit.collider.gameObject.transform.DOScale(new Vector3 (0.8f,0.8f,0.8f), 0.1f).SetEase(Ease.InOutBounce);
+						hit.collider.gameObject.transform.DOScale(new Vector3 (1.3f,1.3f,1.3f), 0.1f).SetEase(Ease.InOutBounce);
 						hit.collider.enabled = false;
 					});
 					link++;
@@ -73,8 +73,8 @@ public class Constellation : MonoBehaviour
 	public void setChildback(){
 		foreach (Transform child in transform){
 			if(child.gameObject.tag == "Star"){
-				if(child.localScale != new Vector3 (0.5f,0.5f,0.5f)) {
-					child.DOScale(new Vector3 (0.5f,0.5f,0.5f), 0.1f).SetEase(Ease.InOutBounce).OnComplete(() => { 
+				if(child.localScale != new Vector3 (0.9f,0.9f,0.9f)) {
+					child.DOScale(new Vector3 (0.9f,0.9f,0.9f), 0.1f).SetEase(Ease.InOutBounce).OnComplete(() => { 
 						child.gameObject.GetComponent<Collider2D>().enabled = true;
 					});
 				}

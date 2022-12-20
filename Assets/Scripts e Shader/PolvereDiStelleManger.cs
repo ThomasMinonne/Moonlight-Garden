@@ -7,16 +7,28 @@ public class PolvereDiStelleManger : MonoBehaviour
 {
 	public int PolvereDiStelle;
 	public TextMeshProUGUI Text;
-	public int piantaCorrente;
+	public int piantaCorrente = 0;
 	public GameObject[] piante;
 	private GameObject daDistruggere;
 	private GameObject daAggiungere;
+	[SerializeField] CameraMove cm;
+	
 	
     // Start is called before the first frame update
     void Start()
     {
         Text = FindObjectOfType<TextMeshProUGUI>();
-		daDistruggere = GameObject.Find("Pianta " + (piantaCorrente+1));
+		piantaCorrente = PlayerPrefs.GetInt("Pianta precedente");
+		if(piantaCorrente == 0){
+			daAggiungere = Instantiate(piante[0], new Vector3(0, -26, 0), Quaternion.identity);
+			daAggiungere.name = "Pianta 0";
+			daDistruggere = GameObject.Find("Pianta 0");	
+		}
+		else { 
+			daAggiungere = Instantiate(piante[piantaCorrente], new Vector3(0, -26, 0), Quaternion.identity);
+			daAggiungere.name = "Pianta " + piantaCorrente;
+			daDistruggere = GameObject.Find("Pianta " + piantaCorrente); 
+		}
     }
 
     // Update is called once per frame
@@ -24,8 +36,9 @@ public class PolvereDiStelleManger : MonoBehaviour
     {
         Text.text = PolvereDiStelle.ToString();
 		if(Input.GetKeyDown("space")){
-			if(PolvereDiStelle >= 3000){
+			if(PolvereDiStelle >= 3000 && piantaCorrente < piante.Length-1){
 				growPlant();
+				cm.animationGrow();
 			}
 		}
     }
@@ -41,10 +54,13 @@ public class PolvereDiStelleManger : MonoBehaviour
 	public void growPlant(){
 		Destroy(daDistruggere);
 		//Controllo se la pianta non sia al massimo
-		daAggiungere = Instantiate(piante[piantaCorrente+1], new Vector3(0, -26, 0), Quaternion.identity);
 		piantaCorrente += 1;
-		daAggiungere.name = "Pianta " + (piantaCorrente+1);
+		PlayerPrefs.SetInt("Pianta precedente", piantaCorrente);
+		daAggiungere = Instantiate(piante[piantaCorrente], new Vector3(0, -26, 0), Quaternion.identity);
+		daAggiungere.name = "Pianta " + (piantaCorrente);
 		daDistruggere = daAggiungere;
+		PolvereDiStelle -= 3000;
+		PlayerPrefs.SetInt("PolvereDiStelle", PolvereDiStelle);
+		PlayerPrefs.Save();
 	}
-	
 }

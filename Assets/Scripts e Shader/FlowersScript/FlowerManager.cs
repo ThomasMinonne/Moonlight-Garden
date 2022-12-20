@@ -66,7 +66,7 @@ public class FlowerManager : MonoBehaviour
 		}
 	}
 	
-	void Animate (Vector3 collectedSparklePosition, int amount){
+	public void Animate (Vector3 collectedSparklePosition, int amount){
 		for (int i = 0; i < amount; i++) {
 			//check if there's coins in the pool
 			if (sparkleQueue.Count > 0) {
