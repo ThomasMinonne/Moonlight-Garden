@@ -33,7 +33,7 @@ public class PolvereDiStelleManger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if(PolvereDiStelle >= 3000 && piantaCorrente < piante.Length-1){
+		if(PolvereDiStelle >= 1000 && piantaCorrente < piante.Length-1){
 			growPlant();
 			cm.animationGrow();
 		}
@@ -63,7 +63,7 @@ public class PolvereDiStelleManger : MonoBehaviour
 		daAggiungere = Instantiate(piante[piantaCorrente], new Vector3(0, -26, 0), Quaternion.identity);
 		daAggiungere.name = "Pianta " + (piantaCorrente);
 		daDistruggere = daAggiungere;
-		PolvereDiStelle -= 3000;
+		PolvereDiStelle -= 1000;
 		PlayerPrefs.SetInt("PolvereDiStelle", PolvereDiStelle);
 		PlayerPrefs.Save();
 	}
