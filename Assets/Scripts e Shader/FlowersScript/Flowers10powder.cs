@@ -17,6 +17,7 @@ public class Flowers10powder : MonoBehaviour
 	private DateTime gather;
 	private long gatherTicks;
 	string format = "dd/MM/yyyy HH:mm:ss";
+	public AudioSource audioSource;
 	
 	[Space]
 	[Header ("Flower settings")]
@@ -26,7 +27,6 @@ public class Flowers10powder : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-		//gather = DateTime.Parse(PlayerPrefs.GetString(name + " gather time"));
 		tickCooldown = secondsCooldown*10000000;
 		LoadGameFuncFlower();
     }

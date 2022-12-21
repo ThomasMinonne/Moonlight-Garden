@@ -17,7 +17,7 @@ public class CameraMove : MonoBehaviour
 	[SerializeField] float duration;
 	[SerializeField] FlowerManager fm;
 	bool isRunning = false;
-	bool canRotate = false;
+	public bool canRotate = false;
 	Vector3 targetPosition;
 	int currentposition = 0;
 	

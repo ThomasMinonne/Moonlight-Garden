@@ -13,7 +13,8 @@ public class Constellation : MonoBehaviour
 	public float yOffset = 0;
 	PolvereDiStelleManger manager;
 	[SerializeField] Vector3 scaleTo;
-	
+	public AudioSource audioSource;
+	public AudioSource constellationComplete;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +35,7 @@ public class Constellation : MonoBehaviour
 		
 			if (hit.collider != null && complete == false){
 				if(hit.collider.gameObject.tag == "Star"){
+					audioSource.Play();
 					hit.collider.gameObject.transform.DOScale(scaleTo, 0.3f).SetEase(Ease.InOutBounce).OnComplete(() => { 
 						hit.collider.gameObject.transform.DOScale(new Vector3 (1.3f,1.3f,1.3f), 0.1f).SetEase(Ease.InOutBounce);
 						hit.collider.enabled = false;
@@ -41,6 +43,7 @@ public class Constellation : MonoBehaviour
 					link++;
 					if(link == stars){
 						complete = true;
+						constellationComplete.Play();
 						PlayerPrefs.SetString(name + " complete?", "complete");
 						PlayerPrefs.Save();
 						manager = GameObject.Find("Manager").GetComponent<PolvereDiStelleManger>();

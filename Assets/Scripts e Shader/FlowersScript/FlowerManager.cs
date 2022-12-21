@@ -28,6 +28,8 @@ public class FlowerManager : MonoBehaviour
 	[SerializeField] GameObject bucket;
 	[SerializeField] Vector3 scaleTo;
 	
+	//[SerializeField] GameObject catalogo;
+	
 	void Awake (){
 		targetPosition = target.position;
 
@@ -43,8 +45,10 @@ public class FlowerManager : MonoBehaviour
 		
 			RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
 		
-			if (hit.collider != null && hit.collider.gameObject.tag != "Star"){
+			//if (hit.collider != null && hit.collider.gameObject.tag != "Star" && hit.collider.gameObject.tag != "Catalogo"){
+			if (hit.collider != null && hit.collider.gameObject.tag == "Fiore"){
 				if(hit.collider.gameObject.GetComponent<Flowers10powder>().checkReady(true)){
+					hit.collider.gameObject.GetComponent<Flowers10powder>().audioSource.Play();
 					manager = GameObject.Find("Manager").GetComponent<PolvereDiStelleManger>();
 					manager.addPolvere(10);
 					hit.collider.gameObject.GetComponent<Flowers10powder>().chooseReady(false);
@@ -52,7 +56,8 @@ public class FlowerManager : MonoBehaviour
 					hit.collider.gameObject.GetComponent<Flowers10powder>().SaveGameFuncFlower();
 					hit.collider.gameObject.GetComponent<Flowers10powder>().LoadGameFuncFlower();
 				}
-			}
+			} 
+			
 		}
     }
 	
